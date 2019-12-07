@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://bio87.sse.codesandbox.io/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Stripe Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A demo of Stripe Billing">
+    <link rel="stylesheet" href="./subscriptionindex_files/normalize.css">
+    <link rel="stylesheet" href="./subscriptionindex_files/global.css">
+    <script src="./subscriptionindex_files/saved_resource"></script>
+    <script src="./subscriptionindex_files/script.js" defer=""></script>
+<script src="./subscriptionindex_files/client-hook-2.js"></script></head>
+
+<body>
+    <div class="sr-title">
+        <h2>Subscribe to Your Own Petting Zoo</h2>
+    </div>
+    <div class="sr-instructions">
+        Tired of all the work required to maintain your own petting zoo? Just click
+        the animals of your choice and we'll bring them to visit you for a Saturday
+        afternoon every month.
+    </div>
+    <div class="sr-banner">
+        Limited time offer: 20% off when you subscribe to 2 or more animals!
+    </div>
+    <div class="sr-body">
+        <div id="sr-animals" class="sr-animals">
+        <div class="sr-animal">
+          <div class="sr-animal-emoji" id="stripe-example-bear" onclick="toggleAnimal(&#39;stripe-example-bear&#39;)">
+              🐻
+          </div>
+          <div class="sr-animal-text">Bear</div>
+          <div class="sr-animal-text">$800/month</div>
+        </div>
+      
+        <div class="sr-animal">
+          <div class="sr-animal-emoji" id="stripe-example-koala" onclick="toggleAnimal(&#39;stripe-example-koala&#39;)">
+              🐨
+          </div>
+          <div class="sr-animal-text">Koala</div>
+          <div class="sr-animal-text">$300/month</div>
+        </div>
+      
+        <div class="sr-animal">
+          <div class="sr-animal-emoji" id="stripe-example-panda" onclick="toggleAnimal(&#39;stripe-example-panda&#39;)">
+              🐼
+          </div>
+          <div class="sr-animal-text">Panda</div>
+          <div class="sr-animal-text">$600/month</div>
+        </div>
+      
+        <div class="sr-animal">
+          <div class="sr-animal-emoji" id="stripe-example-dog" onclick="toggleAnimal(&#39;stripe-example-dog&#39;)">
+              🐶
+          </div>
+          <div class="sr-animal-text">Dog</div>
+          <div class="sr-animal-text">$100/month</div>
+        </div>
+      
+        <div class="sr-animal">
+          <div class="sr-animal-emoji selected" id="stripe-example-cat" onclick="toggleAnimal(&#39;stripe-example-cat&#39;)">
+              🐱
+          </div>
+          <div class="sr-animal-text">Cat</div>
+          <div class="sr-animal-text">$150/month</div>
+        </div>
+      
+        <div class="sr-animal">
+          <div class="sr-animal-emoji selected" id="stripe-example-tiger" onclick="toggleAnimal(&#39;stripe-example-tiger&#39;)">
+              🐯
+          </div>
+          <div class="sr-animal-text">Tiger</div>
+          <div class="sr-animal-text">$650/month</div>
+        </div>
+      
+        <div class="sr-animal">
+          <div class="sr-animal-emoji" id="stripe-example-horse" onclick="toggleAnimal(&#39;stripe-example-horse&#39;)">
+              🐴
+          </div>
+          <div class="sr-animal-text">Horse</div>
+          <div class="sr-animal-text">$550/month</div>
+        </div>
+      
+        <div class="sr-animal">
+          <div class="sr-animal-emoji" id="stripe-example-rabbit" onclick="toggleAnimal(&#39;stripe-example-rabbit&#39;)">
+              🐰
+          </div>
+          <div class="sr-animal-text">Rabbit</div>
+          <div class="sr-animal-text">$50/month</div>
+        </div>
+      
+        <div class="sr-animal">
+          <div class="sr-animal-emoji" id="stripe-example-dragon" onclick="toggleAnimal(&#39;stripe-example-dragon&#39;)">
+              🐲
+          </div>
+          <div class="sr-animal-text">Dragon</div>
+          <div class="sr-animal-text">$100000/month</div>
+        </div>
+      </div>
+        <div class="sr-main">
+            <div class="sr-summary">
+                <h3>Subscription Summary</h3>
+                <div id="summary-preface" class="sr-legal-text left">Prices listed correspond to a recurrent monthly susbcription</div>
+                <div id="summary-table" class="summary-table">
+          <div class="summary-title summary-product">Cat</div>
+          <div class="summary-price summary-product">$150</div>
+        
+          <div class="summary-title summary-product">Tiger</div>
+          <div class="summary-price summary-product">$650</div>
+        
+          <div class="summary-title summary-subtotal">Subtotal</div>
+          <div class="summary-price summary-subtotal">$800</div>
+        
+          <div class="summary-title summary-discount">Discount</div>
+          <div class="summary-price summary-discount">$160</div>
+        
+          <div class="summary-title summary-total">Total</div>
+          <div class="summary-price summary-total">$640</div>
+        </div>
+            </div>
+            <div class="sr-payment-form payment-view">
+                <h3>Payment details</h3>
+                <div class="sr-form-row">
+                    <div class="sr-combo-inputs">
+                        <div class="sr-combo-inputs-row">
+                            <input type="text" id="email" placeholder="Email" autocomplete="cardholder" class="sr-input">
+                        </div>
+                        <div class="sr-combo-inputs-row">
+                            <div class="sr-input sr-card-element StripeElement StripeElement--empty" id="card-element"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;"><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeFrame5" allowpaymentrequest="true" src="./subscriptionindex_files/elements-inner-card-29e7a63866ce88b0539829806479aa7e.html" title="Secure payment input frame" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; height: 19.2px;"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
+                        </div>
+                    </div>
+                    <div class="sr-field-error" id="card-errors" role="alert"></div>
+                </div>
+                <button id="submit">Subscribe</button>
+                <div class="sr-legal-text">
+                    Your card will be immediately charged
+                </div>
+            </div>
+
+            <div class="sr-section hidden completed-view">
+                <h3 id="order-status"></h3>
+                <h4>View subscription response:</h4>
+                <div class="sr-callout">
+                    <pre id="request-json"></pre>
+                </div>
+                <button onclick="window.location.href=&#39;/&#39;">Restart demo</button>
+            </div>
+        </div>
+    </div>
+
+
+<iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeMetricsController0" allowpaymentrequest="true" src="./subscriptionindex_files/outer.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeController1" allowpaymentrequest="true" src="./subscriptionindex_files/controller-a69e7afcd4604629b59bc3354c99873c.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>
