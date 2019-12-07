@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Stripe Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A demo of Stripe Billing" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="/script.js" defer></script>
+</head>
+
+<body>
+    <div class="sr-title">
+        <h2>Subscribe to Your Own Petting Zoo</h2>
+    </div>
+    <div class="sr-instructions">
+        Tired of all the work required to maintain your own petting zoo? Just click
+        the animals of your choice and we'll bring them to visit you for a Saturday
+        afternoon every month.
+    </div>
+    <div class="sr-banner">
+        Limited time offer: 20% off when you subscribe to 2 or more animals!
+    </div>
+    <div class="sr-body">
+        <div id="sr-animals" class="sr-animals"></div>
+        <div class="sr-main">
+            <div class="sr-summary">
+                <h3>Subscription Summary</h3>
+                <div id="summary-preface" class="sr-legal-text left"></div>
+                <div id="summary-table" class="summary-table"></div>
+            </div>
+            <div class="sr-payment-form payment-view">
+                <h3>Payment details</h3>
+                <div class="sr-form-row">
+                    <div class="sr-combo-inputs">
+                        <div class="sr-combo-inputs-row">
+                            <input type="text" id="email" placeholder="Email" autocomplete="cardholder" class="sr-input" />
+                        </div>
+                        <div class="sr-combo-inputs-row">
+                            <div class="sr-input sr-card-element" id="card-element"></div>
+                        </div>
+                    </div>
+                    <div class="sr-field-error" id="card-errors" role="alert"></div>
+                </div>
+                <button id="submit">Subscribe</button>
+                <div class="sr-legal-text">
+                    Your card will be immediately charged
+                </div>
+            </div>
+
+            <div class="sr-section hidden completed-view">
+                <h3 id="order-status"></h3>
+                <h4>View subscription response:</a></h4>
+                <div class="sr-callout">
+                    <pre id="request-json"></pre>
+                </div>
+                <button onclick="window.location.href='/'">Restart demo</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
