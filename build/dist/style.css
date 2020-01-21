@@ -15,9 +15,9 @@ a {
 
 .circle,
 .ring {
-  height: 500px;
+  height: 480px;
   position: relative;
-  width: 500px;
+  width: 480px;
 }
 
 /*256 is original circle size (both height and width) */
