@@ -108,10 +108,10 @@
     <!-- use the Okta widget to power authentication! -->
 <script type="text/javascript">
   var oktaSignIn = new OktaSignIn({
-    baseUrl: "https://dev-271443.okta.com",
+    baseUrl: "https://dev-271443.oktapreview.com",
     clientId: "0oa11jt3ysERK4QLu4x7",
     authParams: {
-      issuer: "https://dev-271443.okta.com/oauth2/default",
+      issuer: "https://dev-271443.oktapreview.com/oauth2/default",
       responseType: ['token', 'id_token'],
       display: 'page'
     }
